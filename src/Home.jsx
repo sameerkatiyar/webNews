@@ -51,7 +51,8 @@ export default class Home extends Component {
   render() {
     return (
       <>
-
+      {this.state.totalResults > 0 ?
+      <>
         <h5 className="bg-dark text-light text-center fs-3 fw-bold p-1 mt-1"> {this.props.search ? this.props.search : this.props.query} News</h5>
         <div className='container'>
           <InfiniteScroll
@@ -82,6 +83,9 @@ export default class Home extends Component {
             </div>
           </InfiniteScroll>
         </div>
+        </>
+         : <div className='container' style={{display:"flex", justifyContent:"center", alignItems:"center", height: "100%"}}><h1>Loading......</h1></div>
+        }
       </>
     )
   }
